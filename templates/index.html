@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pill Identifier</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pill Identifier</h1>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <label for="file">Upload an image of the pill:</label>
+            <input type="file" name="file" id="file" required>
+            <button type="submit">Start Testing</button>
+        </form>
+        {% if prediction %}
+            <div class="result">
+                <h2>Prediction: {{ prediction }}</h2>
+                <p>Usage: {{ usage }}</p>
+                <img src="{{ img_url }}" alt="Uploaded Image">
+            </div>
+        {% endif %}
+        <a href="/refresh"><button>Refresh</button></a>
+    </div>
+</body>
+</html>
